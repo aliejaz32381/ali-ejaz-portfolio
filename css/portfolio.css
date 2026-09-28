@@ -68,7 +68,17 @@
   padding:14px;
   transition:transform .5s ease;
 }
-.project-card:hover .mock-ui{ transform:scale(1.04); }
+.project-card:hover .mock-ui{ transform:scale(1.04); }.project-visual img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+
+.project-card:hover .project-visual img{
+  transform:scale(1.04);
+}
 .mock-ui .mock-line{ height:8px; border-radius:5px; background:rgba(255,255,255,.1); margin-bottom:8px; }
 .mock-ui .mock-line.w60{ width:60%; }
 .mock-ui .mock-line.w40{ width:40%; }
@@ -109,6 +119,13 @@
     radial-gradient(circle at 20% 20%, rgba(255,122,48,.28), transparent 55%),
     radial-gradient(circle at 80% 80%, rgba(58,160,255,.28), transparent 55%),
     var(--bg-card);
+  border-radius:20px 20px 0 0;
+}
+.lightbox-visual img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
   border-radius:20px 20px 0 0;
 }
 .lightbox-body{ padding:36px 40px 40px; position:relative; }

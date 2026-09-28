@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lbApproach = lightbox.querySelector('[data-lb="approach"]');
     const lbSolution = lightbox.querySelector('[data-lb="solution"]');
     const lbResult   = lightbox.querySelector('[data-lb="result"]');
-
+const lbVisual = lightbox.querySelector('.lightbox-visual');
     projectCards.forEach(card => {
       card.addEventListener('click', () => {
         lbCategory.textContent = card.dataset.category_label || '';
@@ -105,8 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
         lbApproach.textContent = card.dataset.approach || '';
         lbSolution.textContent = card.dataset.solution || '';
         lbResult.textContent   = card.dataset.result || '';
-        lightbox.classList.add('open');
-        document.body.style.overflow = 'hidden';
+
+const image = card.dataset.image || '';
+lbVisual.innerHTML = image
+  ? `<img src="${image}" alt="${card.dataset.title || ''}">`
+  : '';
+
+lightbox.classList.add('open');
+document.body.style.overflow = 'hidden';
       });
     });
 
