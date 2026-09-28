@@ -173,28 +173,45 @@ document.body.style.overflow = 'hidden';
       return valid;
     }
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      statusBox.className = 'form-status';
+    form.addEventListener('submit', async (e) => {
+  if (!validate()) {
+    e.preventDefault();
 
-      if (!validate()){
-        statusBox.textContent = 'Please fill in your name, a valid email, and a short message before sending.';
-        statusBox.classList.add('error');
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-
-      // Placeholder submit — connect to a real backend/email service to actually deliver messages.
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Project Inquiry';
-        statusBox.textContent = "Thanks for reaching out. Your project details have been received. I'll review your requirements and get back to you.";
-        statusBox.classList.add('success');
-        form.reset();
-      }, 900);
-    });
+    statusBox.className = 'form-status';
+    statusBox.textContent = 'Please fill in your name, a valid email, and a short message before sending.';
+    statusBox.classList.add('error');
+    return;
   }
 
+  e.preventDefault();
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+  statusBox.className = 'form-status';
+  statusBox.textContent = '';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Project Inquiry';
+      statusBox.textContent = "Thanks for reaching out. Your project details have been sent successfully. I'll review your requirements and get back to you.";
+      statusBox.classList.add('success');
+      form.reset();
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (error) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Project Inquiry';
+    statusBox.textContent = 'Something went wrong while sending your message. Please try again.';
+    statusBox.classList.add('error');
+  }
 });
