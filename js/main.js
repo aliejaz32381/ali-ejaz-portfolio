@@ -173,28 +173,7 @@ document.body.style.overflow = 'hidden';
       return valid;
     }
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      statusBox.className = 'form-status';
-
-      if (!validate()){
-        statusBox.textContent = 'Please fill in your name, a valid email, and a short message before sending.';
-        statusBox.classList.add('error');
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-
-      // Placeholder submit — connect to a real backend/email service to actually deliver messages.
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Project Inquiry';
-        statusBox.textContent = "Thanks for reaching out. Your project details have been received. I'll review your requirements and get back to you.";
-        statusBox.classList.add('success');
-        form.reset();
-      }, 900);
-    });
+    
   }
 
 });
