@@ -104,7 +104,15 @@ const lbVisual = lightbox.querySelector('.lightbox-visual');
         lbDesc.textContent     = card.dataset.description || '';
         lbApproach.textContent = card.dataset.approach || '';
         lbSolution.textContent = card.dataset.solution || '';
-        lbResult.textContent   = card.dataset.result || '';
+        const resultSection = lbResult.closest('.lightbox-section');
+const resultText = card.dataset.result || '';
+
+if (!resultText || resultText.startsWith('Placeholder')) {
+  resultSection.style.display = 'none';
+} else {
+  resultSection.style.display = '';
+  lbResult.textContent = resultText;
+}
 
 const image = card.dataset.image || '';
 lbVisual.innerHTML = image
