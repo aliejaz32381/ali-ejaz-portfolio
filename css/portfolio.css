@@ -124,7 +124,7 @@
 .lightbox-visual img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   display:block;
   border-radius:20px 20px 0 0;
 }
