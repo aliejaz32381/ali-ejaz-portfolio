@@ -10,10 +10,13 @@
 }
 .hero-photo{
   position:relative;
-  aspect-ratio:1/1.05;
+  width:100%;
+  max-width:520px;
+  aspect-ratio:1/1;
+  margin:0 auto;
   border-radius:24px;
-  background:var(--bg-elevated);
-  border:1px solid var(--line-strong);
+  background:transparent;
+  border:0;
   overflow:hidden;
   opacity:0;
   transform:scale(.94);
@@ -34,9 +37,7 @@
   display:flex; align-items:center; justify-content:center;
   font-family:var(--font-head); font-weight:700;
   font-size:5rem;
-  background:radial-gradient(circle at 30% 20%, rgba(255,122,48,.22), transparent 60%),
-             radial-gradient(circle at 80% 80%, rgba(58,160,255,.22), transparent 55%),
-             var(--bg-card);
+  background:transparent;
   color:var(--text);
 }
 .hero-photo .avatar-tag{
@@ -245,4 +246,16 @@
   .work-grid{ grid-template-columns:1fr; }
   .work-card:nth-child(1),.work-card:nth-child(4){ grid-column:span 1; }
   .testi-track{ grid-template-columns:1fr; }
+}
+@media (max-width:700px){
+  .hero-photo{
+    width:100%;
+    max-width:380px;
+    margin:0 auto;
+  }
+}
+
+/* --- hero image: blend the white image canvas into the page background --- */
+.hero-photo > img{
+  mix-blend-mode:multiply;
 }

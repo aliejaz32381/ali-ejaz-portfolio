@@ -7,13 +7,13 @@
 
 :root{
   /* --- color tokens --- */
-  --bg:            #0b0d10;
+  --bg:            #f5f7fa;
   --bg-elevated:   #14171d;
   --bg-card:       #171b21;
   --line:          rgba(255,255,255,.08);
   --line-strong:   rgba(255,255,255,.14);
-  --text:          #edf0f4;
-  --text-dim:      #9aa3ae;
+  --text:          #17202a;
+  --text-dim:      #4b5563;
   --text-faint:    #6b7280;
   --orange:        #ff7a30;
   --orange-soft:   rgba(255,122,48,.16);
@@ -133,7 +133,7 @@ main, header, footer{ position:relative; z-index:1; }
 .nav-links{ display:flex; gap:36px; }
 .nav-links a{
   font-size:.94rem;
-  color:var(--text-dim);
+  color:#e5e7eb;
   transition:color .25s ease;
 }
 .nav-links a:hover, .nav-links a.active{ color:var(--text); }
@@ -251,4 +251,38 @@ main, header, footer{ position:relative; z-index:1; }
   border:1px solid var(--line-strong);
   padding:3px 10px; border-radius:999px;
   display:inline-block;
+}
+
+
+/* ============== PROFESSIONAL LIGHT THEME REFINEMENT ============== */
+:root{
+  --bg:#f4f6f9;
+  --bg-elevated:#ffffff;
+  --bg-card:#ffffff;
+  --line:rgba(15,23,42,.10);
+  --line-strong:rgba(15,23,42,.16);
+  --text:#17202a;
+  --text-dim:#52606d;
+  --text-faint:#73808c;
+  --orange:#e96824;
+  --orange-soft:rgba(233,104,36,.10);
+  --blue:#1769aa;
+  --blue-soft:rgba(23,105,170,.10);
+}
+
+.nav-links a:hover,
+.nav-links a.active{ color:#ffffff; }
+
+.bg-glow span{ opacity:.10; }
+
+.btn-secondary{
+  background:#ffffff;
+  border-color:rgba(15,23,42,.14);
+  color:#17202a;
+}
+
+.tool-chip{
+  color:#52606d;
+  background:#f8fafc;
+  border-color:rgba(15,23,42,.12);
 }

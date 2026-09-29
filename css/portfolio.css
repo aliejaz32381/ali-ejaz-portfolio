@@ -161,3 +161,66 @@
   .portfolio-grid{ grid-template-columns:1fr; }
   .lightbox-body{ padding:28px 24px 30px; }
 }
+
+
+/* ============== PROFESSIONAL PORTFOLIO CARDS ============== */
+.project-card{
+  background:#ffffff;
+  border:1px solid rgba(15,23,42,.10);
+  box-shadow:0 10px 30px rgba(15,23,42,.055);
+}
+
+.project-card:hover{
+  border-color:rgba(23,105,170,.30);
+  box-shadow:0 24px 50px -26px rgba(23,105,170,.25);
+}
+
+.project-cat{
+  color:#1769aa;
+  font-weight:600;
+}
+
+.project-body h3{
+  color:#17202a;
+  font-weight:650;
+}
+
+.project-body p{
+  color:#52606d;
+}
+
+.project-tools .tool-chip{
+  color:#52606d;
+  background:#f8fafc;
+  border-color:rgba(15,23,42,.11);
+}
+
+.project-link{
+  color:#d85d19;
+}
+
+.filter-btn{
+  background:#ffffff;
+  border-color:rgba(15,23,42,.12);
+  color:#52606d;
+  box-shadow:0 3px 12px rgba(15,23,42,.035);
+}
+
+.filter-btn:hover{
+  color:#17202a;
+  border-color:rgba(23,105,170,.30);
+}
+
+.filter-btn.active{
+  color:#ffffff;
+  background:linear-gradient(135deg,#e96824,#1769aa);
+  box-shadow:0 8px 22px rgba(23,105,170,.18);
+}
+
+.lightbox-panel{
+  box-shadow:0 30px 80px rgba(0,0,0,.30);
+}
+
+.lightbox-close{
+  color:#ffffff;
+}
