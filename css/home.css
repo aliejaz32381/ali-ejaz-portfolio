@@ -255,7 +255,13 @@
   }
 }
 
-/* --- hero image: blend the white image canvas into the page background --- */
+
+
+/* --- homepage hero image: blend away the white image canvas --- */
 .hero-photo > img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
   mix-blend-mode:multiply;
 }
