@@ -45,13 +45,13 @@
         <button class="filter-btn" data-filter="listing">Listing Optimization</button>
         <button class="filter-btn" data-filter="shopify">Shopify & E-commerce Stores</button>
         <button class="filter-btn" data-filter="inventory">Inventory & Integrations</button>
-        <button class="filter-btn" data-filter="amazon-ebay">Amazon & eBay Projects</button>
+        <button class="filter-btn amazon-ebay-filter" data-filter="amazon-ebay">Amazon & eBay Projects</button>
       </div>
 
       <div class="portfolio-grid">
 
         <!-- 1 -->
-        <div class="project-card show" data-category="listing"
+        <div class="project-card show" data-category="listing" data-special-category="amazon-ebay"
              data-category_label="Listing Optimization" data-title="Amazon Listing Optimization" data-image="assets/portfolio/amazon-listing.png"
              data-platform="Amazon" data-role="Listing Optimization Specialist"
              data-description="Optimizing Amazon product listings with improved titles, keywords, product content, images, and A+ Content."
@@ -72,7 +72,7 @@
         </div>
 
         <!-- 2 -->
-        <div class="project-card show" data-category="marketplace"
+        <div class="project-card show" data-category="marketplace" data-special-category="amazon-ebay"
              data-category_label="Marketplace Management" data-title="eBay Marketplace Management"
 data-image="assets/portfolio/ebay-management.png"
              data-platform="eBay" data-role="Marketplace Manager"
@@ -341,5 +341,26 @@ data-image="assets/portfolio/sellercloud-management.png"
 </div>
 
 <script src="js/main.js"></script>
+<script>
+  // Special combined filter: show only Amazon + eBay projects.
+  document.addEventListener('DOMContentLoaded', function () {
+    const specialBtn = document.querySelector('.amazon-ebay-filter');
+    if (!specialBtn) return;
+
+    specialBtn.addEventListener('click', function () {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      specialBtn.classList.add('active');
+
+      cards.forEach(card => {
+        const isAmazonEbay = card.dataset.specialCategory === 'amazon-ebay';
+        card.classList.toggle('hide', !isAmazonEbay);
+        card.classList.toggle('show', isAmazonEbay);
+      });
+    });
+  });
+</script>
 </body>
 </html>
