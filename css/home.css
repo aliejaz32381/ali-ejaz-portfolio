@@ -265,3 +265,52 @@
   object-fit:cover;
   mix-blend-mode:multiply;
 }
+
+
+/* --- mobile stats: keep all content inside the cards --- */
+@media (max-width:700px){
+  .stats-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    width:100%;
+    min-width:0;
+  }
+
+  .stat-card{
+    min-width:0;
+    padding:28px 18px;
+    overflow:hidden;
+  }
+
+  .stat-num{
+    font-size:2rem;
+    line-height:1.15;
+    min-width:0;
+    overflow-wrap:anywhere;
+  }
+
+  .stat-label{
+    max-width:100%;
+    line-height:1.5;
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+}
+
+@media (max-width:420px){
+  .stat-card{
+    padding:26px 14px;
+  }
+
+  .stat-num{
+    font-size:1.8rem;
+  }
+
+  /* The longer fourth statistic gets a little more room on narrow phones. */
+  .stat-card:nth-child(4) .stat-num{
+    font-size:1.65rem;
+  }
+
+  .stat-label{
+    font-size:.82rem;
+  }
+}
